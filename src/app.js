@@ -24,14 +24,14 @@ app.use(express.static(publicDirectoryPath));
 app.get("", (req, res) => {
   res.render("index", {
     title: "Weather",
-    name: "Andrew Mead",
+    name: "Sebastian Golbert",
   });
 });
 
 app.get("/about", (req, res) => {
   res.render("about", {
     title: "About Me",
-    name: "Andrew Mead",
+    name: "Sebastian Golbert",
   });
 });
 
@@ -39,7 +39,7 @@ app.get("/help", (req, res) => {
   res.render("help", {
     helpText: "This is some helpful text.",
     title: "Help",
-    name: "Andrew Mead",
+    name: "Sebastian Golbert",
   });
 });
 
@@ -69,7 +69,6 @@ app.get("/weather", (req, res) => {
 
           res.send({
             forecast: forecastData,
-            location: location,
             address: req.query.address,
           });
         });
@@ -81,7 +80,7 @@ app.get("/weather", (req, res) => {
 app.get("/help/*", (req, res) => {
   res.render("404", {
     title: "404",
-    name: "Andrew Mead",
+    name: "Sebastian Golbert",
     errorMessage: "Help article not found.",
   });
 });
@@ -89,7 +88,7 @@ app.get("/help/*", (req, res) => {
 app.get("*", (req, res) => {
   res.render("404", {
     title: "404",
-    name: "Andrew Mead",
+    name: "Sebastian Golbert",
     errorMessage: "Page not found.",
   });
 });
