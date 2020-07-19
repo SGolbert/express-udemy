@@ -2,6 +2,7 @@ require("dotenv").config();
 const path = require("path");
 const express = require("express");
 const hbs = require("hbs");
+const chalk = require("chalk");
 const geocode = require("../utils/geocode");
 const forecast = require("../utils/forecast");
 
@@ -52,12 +53,18 @@ app.get("/weather", (req, res) => {
       req.query.address,
       (error, { latitude, longitude, location } = {}) => {
         if (error) {
-          return console.log(error);
+          res.send({
+            error,
+          });
+          return console.log(chalk.red.inverse(error));
         }
 
         forecast(latitude, longitude, (error, forecastData) => {
           if (error) {
-            return console.log(error);
+            res.send({
+              error,
+            });
+            return console.log(chalk.red.inverse(error));
           }
 
           res.send({
