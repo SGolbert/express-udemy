@@ -9,6 +9,8 @@ weatherForm.addEventListener("submit", (e) => {
 
   const url = "http://localhost:3000/weather?address=" + searchTerm;
 
+  result.innerHTML = "Searching...";
+
   fetch(url).then((response) => {
     if (!response.ok) {
       throw new Error("Network response was not ok");
