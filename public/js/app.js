@@ -7,7 +7,7 @@ weatherForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const searchTerm = e.target[0].value;
 
-  const url = "/weather?address=" + searchTerm;
+  const url = "/weather?address=" + encodeURIComponent(searchTerm);
 
   result.innerHTML = "Searching...";
 
